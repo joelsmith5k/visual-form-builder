@@ -1,0 +1,54 @@
+h2 {
+  color: red;
+}
+
+.formBuilder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 95%;
+  margin: auto;
+  background-color: whitesmoke;
+}
+
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
+.summaryWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid grey;
+  width: 66%;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.questionSummary {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.questionNumber {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+}
+
+.questionTitle {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

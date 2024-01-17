@@ -1,0 +1,42 @@
+<div class="formBuilder">
+  <div class="titleWrapper">
+    <h3>{{ title }}</h3>
+  </div>
+
+  <div class="subtitleWrapper">
+    <h4>Questions</h4>
+  </div>
+
+  <div class="questionContainer">
+    <ng-container *ngFor="let formField of formData; index as i">
+        <app-question
+          (click)="showDetailQuestion(i)"
+          [formField]="formField"
+          [listLength]="listLength"
+          *ngIf="currentIndex === i"
+          (openDialog)="openDialog(formField)"
+          (shiftQuestionUp)="shiftQuestionUp(formField)"
+          (shiftQuestionDown)="shiftQuestionDown(formField)"
+        >
+        </app-question>
+
+        <div class="summaryWrapper"          
+          *ngIf="currentIndex !== i"
+          (click)="showDetailQuestion(i)"
+          >
+          <div class="questionSummary">
+            <div class="questionNumber">
+              <h3>{{ i + 1 }}</h3>
+            </div>
+            <div class="questionTitle">
+              <mat-label> {{ formField.label }}</mat-label>
+            </div>
+          </div>
+        </div>
+    </ng-container>
+  </div>
+
+  <button mat-icon-button (click)="onCreateFormField()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

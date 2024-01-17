@@ -1,0 +1,11 @@
+<mat-card class="container">
+    <mat-card-title>Form Preview</mat-card-title>
+    <mat-card-content class="contentWrapper">
+        <form class="formWrapper">
+            <ng-container *ngFor="let formField of formData">
+                <input-preview [fieldData]="formField" *ngIf="formField.type === 'input'"></input-preview>
+                <checkbox-preview [fieldData]="formField" *ngIf="formField.type === 'checkbox'"></checkbox-preview>
+            </ng-container>
+        </form>
+    </mat-card-content>
+</mat-card>

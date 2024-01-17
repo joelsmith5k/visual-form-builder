@@ -1,0 +1,116 @@
+<mat-card name="question" class="container">
+  <mat-card-content class="content">
+    <div class="questionRow">
+      <div class="questionNumber">
+        <h3>{{ ordinal }}</h3>
+      </div>
+      <div class="questionTitle">
+        <mat-label>{{ formField.label }}</mat-label>
+      </div>
+    </div>
+    <br />
+    <div class="questionRow">
+      <mat-form-field appearance="fill">
+        <mat-label>Question Type</mat-label>
+        <mat-select
+          [(ngModel)]="formField.type"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <mat-option value="input">Short Answer</mat-option>
+          <mat-option value="checkbox">Check Box</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Question Prompt</mat-label>
+        <input
+          matInput
+          placeholder="Enter a  question prompt"
+          [(ngModel)]="formField.label"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+    </div>
+    <div class="questionRow">
+      <mat-form-field appearance="fill" *ngIf="formField.type === 'input'">
+        <mat-label>Placeholder</mat-label>
+        <input
+          matInput
+          placeholder="Enter placeholder of this form field"
+          [(ngModel)]="formField.placeholder"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" *ngIf="formField.type === 'input'">
+        <mat-label>Default Value</mat-label>
+        <input
+          matInput
+          placeholder="Enter default value of this form field"
+          [(ngModel)]="formField.value"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" *ngIf="formField.type === 'checkbox'">
+        <mat-label>Default Value</mat-label>
+        <mat-select
+          [(ngModel)]="formField.value"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <mat-option [value]="true">True</mat-option>
+          <mat-option [value]="false">False</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="toggleRow" *ngIf="formField.type === 'input'">
+      <mat-slide-toggle
+        [(ngModel)]="formField.required"
+        [ngModelOptions]="{ standalone: true }"
+        >Required</mat-slide-toggle
+      >
+      <mat-slide-toggle
+        [(ngModel)]="formField.disabled"
+        [ngModelOptions]="{ standalone: true }"
+        >Read Only</mat-slide-toggle
+      >
+    </div>
+    <div class="toggleRow" *ngIf="formField.type === 'checkbox'">
+      <mat-slide-toggle
+        [(ngModel)]="formField.required"
+        [ngModelOptions]="{ standalone: true }"
+        >Required</mat-slide-toggle
+      >
+      <mat-slide-toggle
+        [(ngModel)]="formField.disabled"
+        [ngModelOptions]="{ standalone: true }"
+        >Disabled</mat-slide-toggle
+      >
+    </div>
+  </mat-card-actions>
+  <div class="buttonRow">
+    <button
+      mat-mini-fab
+      color="delete"
+      *ngIf="formField.index != 0"
+      (click)="onShiftUp()"
+    >
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="delete" (click)="onDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+    <button
+      mat-mini-fab
+      color="delete"
+      *ngIf="formField.index != listLength - 1"
+      (click)="onShiftDown()"
+    >
+      <mat-icon>arrow_downward</mat-icon>
+    </button>
+  </div>
+</mat-card>

@@ -1,0 +1,21 @@
+.formWrapper {
+    display: flex;
+    width: 100%;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    gap: 25px 25px;
+}
+
+.contentWrapper {
+    padding: 25px 0;
+}
+
+.container {
+    padding: 25px;
+    width: 500px;
+    min-width: 300px;
+    height: 350px;
+    min-height: 200px;
+    resize: both;
+    overflow: auto;
+}

@@ -1,0 +1,130 @@
+<div class="formResult">
+  <div class="titleWrapper">
+    <h3>{{ title }}</h3>
+  </div>
+  <mat-tab-group name="tabs" class="tabGroup">
+    <mat-tab label="Template">
+      <div>
+        <pre><code>
+    &lt;mat-card class="container">
+      &lt;mat-card-title>
+        &lt;h3> {{ "{" }}{{ "{" }} title {{ "}" }}{{ "}" }} &lt;/h3>
+      &lt;/mat-card-title>
+      &lt;mat-card-content class="contentWrapper">
+      &lt;form class="formWrapper">
+  </code></pre>
+        <ng-container *ngFor="let formField of formData; index as i">
+          <div *ngIf="formField.type == 'input'">
+            <pre><code>
+        &lt;mat-form-field appearance="fill">
+            &lt;mat-label>{{formField.label}}&lt;/mat-label>
+            &lt;input matInput placeholder="{{ formField.placeholder }}"
+                            class="form-control"
+                            id="{{i + 1}}"
+                            required="{{ formField.required }}"
+                            readonly="{{ formField.disabled }}"
+                            {{ "[" }}(ngModel)]="answer_{{ i + 1 }}"
+                            {{ "[" }}ngModelOptions]="{{ "{" }} standalone: true {{ "}" }}"/>  
+        &lt;/mat-form-field>
+  </code></pre>
+          </div>
+          <div *ngIf="formField.type == 'checkbox'">
+  <pre><code>
+        &lt;mat-checkbox required="{{ formField.required }}"
+                      disabled="{{ formField.disabled }}" 
+                      {{ "[" }}(ngModel)]="answer_{{ i + 1 }}"
+                      {{ "[" }}ngModelOptions]="{{ "{" }} standalone: true {{ "}" }}">{{formField.label}}
+        &lt;/mat-checkbox>
+  </code></pre>
+          </div>
+        </ng-container>
+  <pre><code>
+      &lt;/form>
+      &lt;div class="buttonRow">
+      &lt;button mat-button color="primary" (click)="onClear()">Clear&lt;/button>
+      &lt;button mat-button color="primary" (click)="onSubmit()">
+        Submit
+      &lt;/button>
+      &lt;/div>
+      &lt;/mat-card-content>
+  &lt;/mat-card>
+  </code></pre>
+      </div>
+    </mat-tab>
+    <mat-tab label="TypeScript">
+  <pre><code>
+    import {{ "{" }} Component, OnInit, OnDestroy, Input, Output, EventEmitter {{ "}" }} from '{{ "@" }}angular/core';
+
+    {{ "@" }}Component{{ "(" }}{{ "{" }}
+      selector: 'app-form',
+      templateUrl: './form.component.html',
+      styleUrls: ['./form.component.scss']
+    {{ "}" }}{{ ")" }}
+
+    export class FormComponent implements OnInit {{ "{" }}
+
+    title: string = 'Generated Form';
+
+    <ng-container *ngFor="let formField of formData; index as i">
+    answer_{{ i + 1 }}: string | boolean = '';
+    
+    </ng-container>
+
+    constructor() {{ "{" }}{{ "}" }}
+  
+    ngOnInit(): void {{ "{" }}{{ "}" }}
+
+    onClear() {{ "{" }}
+      console.log('clear..');
+      {{ "}" }}
+  
+    onSubmit() {{ "{" }}
+      console.log('submit..');
+      console.log("log some answer properties here..");
+      {{ "}" }}  
+    {{ "}" }}
+
+  </code></pre>   
+    </mat-tab>
+    <mat-tab label="CSS">
+      <pre><code>
+  .formWrapper{{ "{" }}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  {{ "}" }}
+</code></pre>
+    </mat-tab>
+    <mat-tab label="Spec.ts">
+      <pre><code>
+  import {{ "{" }} ComponentFixture, TestBed {{ "}" }} from '{{ "@" }}angular/core/testing';
+
+  import {{ "{" }} FormComponent {{ "}" }} from './form.component';
+  
+  
+  describe('InputPreviewComponent', () => {{ "{" }}
+    let component: FormComponent;
+    let fixture: ComponentFixture&lt;FormComponent>;
+  
+  beforeEach(async () => {{ "{" }}
+    await TestBed.configureTestingModule({{ "{" }}
+      declarations: [ FormComponent ]
+      {{ "}" }})
+    .compileComponents();
+  {{ "}" }});
+  
+  beforeEach(() => {{ "{" }}
+    fixture = TestBed.createComponent(FormComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  {{ "}" }});
+
+  it('should create', () => {{ "{" }}
+    expect(component).toBeTruthy();
+    {{ "}" }});
+  {{ "}" }});
+</code></pre>
+    </mat-tab>
+  </mat-tab-group>
+</div>

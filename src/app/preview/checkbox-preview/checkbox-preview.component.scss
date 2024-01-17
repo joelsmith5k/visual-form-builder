@@ -1,0 +1,6 @@
+
+// Checkbox background colour
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+background-color: #6dc8ef !important;
+}

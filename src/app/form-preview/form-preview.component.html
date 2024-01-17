@@ -1,0 +1,22 @@
+<div class="formPreview">
+  <div class="titleWrapper">
+    <h3>{{ title }}</h3>
+  </div>
+
+  <ng-container *ngFor="let formField of formData; index as i">
+    <input-preview
+      *ngIf="formField.type == 'input'"
+      [fieldData]="formField"
+    ></input-preview>
+    <checkbox-preview
+      *ngIf="formField.type == 'checkbox'"
+      [fieldData]="formField"
+    ></checkbox-preview>
+  </ng-container>
+  <div class="buttonRow">
+    <button mat-button color="primary" (click)="onClearPreview()">Clear</button>
+    <button mat-button color="primary" (click)="onSubmitPreview()">
+      Submit
+    </button>
+  </div>
+</div>

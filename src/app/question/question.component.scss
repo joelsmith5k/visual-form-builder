@@ -1,0 +1,90 @@
+/* -------------------------------------------------------- Card ----------------------------------------------------------------- */
+
+
+
+// .container{
+//     width: 75%;
+// }
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------- Inputs ----------------------------------------------------------------- */
+::ng-deep .mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: #00a6ed;
+    }
+    .mat-form-field-ripple {
+        background-color: #00a6ed;
+    }
+    .mat-form-field-required-marker {
+        color: #00a6ed;
+    }
+    // changes colour of text in box
+    // .mat-input-element {
+    //     color: #ff4dd5;
+    // }
+}
+
+.mat-form-field{
+    margin: 2px;
+}
+
+.questionRow{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionNumber{
+    width: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: grey;
+}
+
+.questionTitle{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------------------------------------------ Sliders ------------------------------------------------------------------- */
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #6dc8ef;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #00a6ed;
+}
+
+.mat-delete {
+    background-color:  #00a6ed;
+    color: #fff;
+}
+
+.mat-slide-toggle{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.toggleRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

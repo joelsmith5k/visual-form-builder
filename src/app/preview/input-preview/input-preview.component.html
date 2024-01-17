@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+    <mat-label>{{fieldData.label}}</mat-label>
+    <input matInput placeholder="{{fieldData.placeholder}}" 
+                    required="{{fieldData.required}}" 
+                    readonly="{{fieldData.disabled}}"
+                    [formControl]="fieldControl"
+                    [(ngModel)]="fieldData.value">
+                    
+</mat-form-field>

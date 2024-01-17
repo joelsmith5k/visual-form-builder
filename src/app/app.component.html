@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="appContainer">
+  <div class="sectionContainer">
+    <app-form-preview [formData]="formData"> </app-form-preview>
+  </div>
+
+  <div class="sectionContainer">
+    <app-form-builder
+      ngDefaultControl
+      [formData]="formData"
+      (ngModel)="(formData)"
+    ></app-form-builder>
+  </div>
+
+  <div class="sectionContainer">
+    <app-form-result
+      [formData]="formData"
+      (ngModel)="(formData)"
+    ></app-form-result>
+  </div>
+</div>
+<div class="footerContainer">An Angular Project by joelsmith5k and Pomelool</div>
+
+<router-outlet></router-outlet>
